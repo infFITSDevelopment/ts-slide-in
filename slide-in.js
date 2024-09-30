@@ -1,4 +1,4 @@
-;(function ($) {
+(function ($) {
   // 動態添加 Google 字體連結
   var googleFontLink = document.createElement("link");
   googleFontLink.rel = "preconnect";
@@ -633,6 +633,7 @@
       材質: [],
       場合: [],
     };
+    var adContainer = document.getElementById("slide-in-ad-container");
     var owl;
   $(function () {
     console.log("DOM is ready");
@@ -658,7 +659,6 @@
         document.getElementById("slide-in-bootstrap-scoped").textContent =
           scopedCSS;
       });
-    var adContainer = document.getElementById("slide-in-ad-container");
 
     var selectedTag = "彈性"; // 這裏可以根據實際選擇動態設置
 
