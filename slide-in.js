@@ -523,9 +523,10 @@
   }
     `;
   document.head.appendChild(customCSS);
-
-  // 添加 html template
-  var slideInTemplate = `<div
+  $(function () {
+    console.log("DOM is ready");
+    // 添加 html template
+    var slideInTemplate = `<div
             class="offcanvas offcanvas-bottom show"
             data-bs-scroll="true"
             data-bs-backdrop="false"
@@ -594,7 +595,8 @@
             </div>
           </div>
     `;
-  document.body.insertAdjacentHTML("beforeend", slideInTemplate);
+    document.body.insertAdjacentHTML("beforeend", slideInTemplate);
+
     // 初始化 Owl Carousel
     var owl = $("#slide-in-carousel").owlCarousel({
       items: 1,
@@ -628,44 +630,43 @@
         },
       },
     });
-  var Brand = "TDA";
-  var tags_chosen = {
-    彈性: [
-      {
-        Description: "example",
-        Imgsrc: "https://example.com/imageB1.png",
-        Name: "example",
-        Tag: "1721875900838",
-        TagGroup: "彈性",
-      },
-    ],
-    場合: [
-      {
-        Description: "example",
-        Imgsrc: "https://example.com/imageB1.png",
-        Name: "example",
-        Tag: "1721875746070",
-        TagGroup: "場合",
-      },
-    ],
-    材質: [
-      {
-        Description: "example",
-        Imgsrc: "https://example.com/imageB1.png",
-        Name: "example",
-        Tag: "1721875867435",
-        TagGroup: "材質",
-      },
-    ],
-  };
-   
+    var Brand = "TDA";
+    var tags_chosen = {
+      彈性: [
+        {
+          Description: "example",
+          Imgsrc: "https://example.com/imageB1.png",
+          Name: "example",
+          Tag: "1721875900838",
+          TagGroup: "彈性",
+        },
+      ],
+      場合: [
+        {
+          Description: "example",
+          Imgsrc: "https://example.com/imageB1.png",
+          Name: "example",
+          Tag: "1721875746070",
+          TagGroup: "場合",
+        },
+      ],
+      材質: [
+        {
+          Description: "example",
+          Imgsrc: "https://example.com/imageB1.png",
+          Name: "example",
+          Tag: "1721875867435",
+          TagGroup: "材質",
+        },
+      ],
+    };
+
     // 定義每個標籤對應的圖片
     var tagImages = {
       彈性: [],
       材質: [],
       場合: [],
     };
-  $(function () {
     console.log("DOM is ready");
     // Fetch the Bootstrap CSS from CDN
     fetch(
@@ -813,8 +814,6 @@
     //   }
     //   e.preventDefault();
     // });
-
-    console.log("DOM is ready");
 
     // 監聽 radio 按鈕變化
     $(".pill-button").on("change", function () {
