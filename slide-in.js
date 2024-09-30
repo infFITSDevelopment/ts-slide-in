@@ -1,4 +1,4 @@
-(function ($) {
+;(function ($) {
   // 動態添加 Google 字體連結
   var googleFontLink = document.createElement("link");
   googleFontLink.rel = "preconnect";
@@ -633,7 +633,6 @@
       材質: [],
       場合: [],
     };
-    var adContainer = document.getElementById("slide-in-ad-container");
     var owl;
   $(function () {
     console.log("DOM is ready");
@@ -703,6 +702,7 @@
     // 首次載入時執行檢查
     handleWindowResize();
     function handleWindowResize() {
+      var adContainer = document.getElementById("slide-in-ad-container");
       // 取得當前視窗寬度
       var windowWidth = window.innerWidth;
 
