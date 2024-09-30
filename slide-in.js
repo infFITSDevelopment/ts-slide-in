@@ -1,4 +1,4 @@
-l(function ($) {
+;(function ($) {
   // 動態添加 Google 字體連結
   var googleFontLink = document.createElement("link");
   googleFontLink.rel = "preconnect";
