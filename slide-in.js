@@ -1,4 +1,4 @@
-;(function ($) {
+l(function ($) {
   // 動態添加 Google 字體連結
   var googleFontLink = document.createElement("link");
   googleFontLink.rel = "preconnect";
@@ -523,6 +523,44 @@
   }
     `;
   document.head.appendChild(customCSS);
+  var Brand = "TDA";
+  var tags_chosen = {
+    彈性: [
+      {
+        Description: "example",
+        Imgsrc: "https://example.com/imageB1.png",
+        Name: "example",
+        Tag: "1721875900838",
+        TagGroup: "彈性",
+      },
+    ],
+    場合: [
+      {
+        Description: "example",
+        Imgsrc: "https://example.com/imageB1.png",
+        Name: "example",
+        Tag: "1721875746070",
+        TagGroup: "場合",
+      },
+    ],
+    材質: [
+      {
+        Description: "example",
+        Imgsrc: "https://example.com/imageB1.png",
+        Name: "example",
+        Tag: "1721875867435",
+        TagGroup: "材質",
+      },
+    ],
+  };
+  var owl;
+
+  // 定義每個標籤對應的圖片
+  var tagImages = {
+    彈性: [],
+    材質: [],
+    場合: [],
+  };
   $(function () {
     console.log("DOM is ready");
     // 添加 html template
@@ -598,7 +636,7 @@
     document.body.insertAdjacentHTML("beforeend", slideInTemplate);
 
     // 初始化 Owl Carousel
-    var owl = $("#slide-in-carousel").owlCarousel({
+    owl = $("#slide-in-carousel").owlCarousel({
       items: 1,
       slideBy: "page",
       loop: true,
@@ -630,44 +668,7 @@
         },
       },
     });
-    var Brand = "TDA";
-    var tags_chosen = {
-      彈性: [
-        {
-          Description: "example",
-          Imgsrc: "https://example.com/imageB1.png",
-          Name: "example",
-          Tag: "1721875900838",
-          TagGroup: "彈性",
-        },
-      ],
-      場合: [
-        {
-          Description: "example",
-          Imgsrc: "https://example.com/imageB1.png",
-          Name: "example",
-          Tag: "1721875746070",
-          TagGroup: "場合",
-        },
-      ],
-      材質: [
-        {
-          Description: "example",
-          Imgsrc: "https://example.com/imageB1.png",
-          Name: "example",
-          Tag: "1721875867435",
-          TagGroup: "材質",
-        },
-      ],
-    };
 
-    // 定義每個標籤對應的圖片
-    var tagImages = {
-      彈性: [],
-      材質: [],
-      場合: [],
-    };
-    console.log("DOM is ready");
     // Fetch the Bootstrap CSS from CDN
     fetch(
       "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
