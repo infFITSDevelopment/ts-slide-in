@@ -595,7 +595,39 @@
           </div>
     `;
   document.body.insertAdjacentHTML("beforeend", slideInTemplate);
-
+    // 初始化 Owl Carousel
+    var owl = $("#slide-in-carousel").owlCarousel({
+      items: 1,
+      slideBy: "page",
+      loop: true,
+      margin: 30,
+      autoplay: true,
+      autoPlayTimeout: 250,
+      autoplayHoverPause: true,
+      smartSpeed: 500,
+      stagePadding: 25,
+      responsiveClass: true,
+      nav: false,
+      dots: false,
+      lazyLoad: true,
+      responsive: {
+        0: {
+          items: 2,
+          margin: 48,
+          // slideBy: 2,
+        },
+        600: {
+          items: 4,
+          autoplaySpeed: 15000,
+          // slideBy: 2,
+        },
+        992: {
+          items: 6,
+          autoplaySpeed: 15000,
+          // slideBy: 2,
+        },
+      },
+    });
   var Brand = "TDA";
   var tags_chosen = {
     彈性: [
@@ -662,39 +694,6 @@
 
     var breakpoint = 992;
 
-    // 初始化 Owl Carousel
-    var owl = $("#slide-in-carousel").owlCarousel({
-      items: 1,
-      slideBy: "page",
-      loop: true,
-      margin: 30,
-      autoplay: true,
-      autoPlayTimeout: 250,
-      autoplayHoverPause: true,
-      smartSpeed: 500,
-      stagePadding: 25,
-      responsiveClass: true,
-      nav: false,
-      dots: false,
-      lazyLoad: true,
-      responsive: {
-        0: {
-          items: 2,
-          margin: 48,
-          // slideBy: 2,
-        },
-        600: {
-          items: 4,
-          autoplaySpeed: 15000,
-          // slideBy: 2,
-        },
-        992: {
-          items: 6,
-          autoplaySpeed: 15000,
-          // slideBy: 2,
-        },
-      },
-    });
     // 監聽窗口大小變化
     window.addEventListener("resize", handleWindowResize);
 
