@@ -585,7 +585,7 @@
               </div>
   
               <div
-                id="carousel1"
+                id="slide-in-carousel"
                 class="carousel-container owl-carousel owl-theme owl-loaded"
                 style="max-width: 1054px; width: 85vw"
               >
@@ -633,7 +633,6 @@
       材質: [],
       場合: [],
     };
-    var owl;
   $(function () {
     console.log("DOM is ready");
     // Fetch the Bootstrap CSS from CDN
@@ -664,7 +663,7 @@
     var breakpoint = 992;
 
     // 初始化 Owl Carousel
-    owl = $("#carousel1").owlCarousel({
+    var owl = $("#slide-in-carousel").owlCarousel({
       items: 1,
       slideBy: "page",
       loop: true,
