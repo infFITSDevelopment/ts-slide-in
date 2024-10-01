@@ -72,7 +72,7 @@
     width: 97%;
     margin: 0 auto;
     z-index: 99999;
-    height: 325px;
+    height: 340px;
     transition: height 0.3s ease-out;
     -webkit-transition: height 0.3s ease-out;
     -moz-transition: height 0.3s ease-out;
@@ -213,7 +213,7 @@
        object-position: center;
   }
   
-  #slide-in-ad-container #slide-in-ad-container .owl-carousel .ad-item {
+  #slide-in-ad-container .owl-carousel .ad-item {
     border-radius: 8px;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
@@ -428,7 +428,7 @@
               animation-delay: 100ms;
       -webkit-animation: scaleDown 500ms ease-out both;
     }
-    #slide-in-ad-container #slide-in-ad-container .owl-carousel .ad-item {
+    #slide-in-ad-container .owl-carousel .ad-item {
       opacity: 0;
       position: absolute;
       z-index: -1;
