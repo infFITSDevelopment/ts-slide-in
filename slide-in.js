@@ -67,9 +67,9 @@
     min-height: fit-content;
     position: fixed;
     bottom: 18px;
-    left: 0;
-    right: 0;
-    width: 100%;
+    left: 1.5%;
+    right: 1.5%;
+    width: 97%;
     margin: 0 auto;
     z-index: 99999;
     height: 280px;
@@ -176,7 +176,7 @@
     color: white;
   }
   
-  .owl-carousel .item img {
+  #slide-in-carousel .owl-carousel .item img {
     border-radius: 4px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -201,7 +201,7 @@
         align-items: center;
   }
   
-  .owl-carousel .item img {
+  #slide-in-carousel .owl-carousel .item img {
     scale: 1;
     width: 100%;
     height: auto;
@@ -213,7 +213,7 @@
        object-position: center;
   }
   
-  #slide-in-ad-container .owl-carousel .ad-item {
+  #slide-in-ad-container #slide-in-carousel .owl-carousel .ad-item {
     border-radius: 8px;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
@@ -225,17 +225,17 @@
     cursor: pointer !important;
   }
   
-  .owl-carousel .ad-item img {
+  #slide-in-carousel .owl-carousel .ad-item img {
     aspect-ratio: 0.5;
   }
   
-  .owl-carousel .ad-item--cover {
+  #slide-in-carousel .owl-carousel .ad-item--cover {
     opacity: 0;
     position: absolute;
     z-index: -1;
   }
   
-  .owl-carousel .ad-item--cover .item-img {
+  #slide-in-carousel .owl-carousel .ad-item--cover .item-img {
     overflow: hidden;
     border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -245,7 +245,7 @@
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   }
   
-  .owl-carousel .item-img {
+  #slide-in-carousel .owl-carousel .item-img {
     background-color: #fff;
     /* background-color: var(--dark-yellow-14); */
     border-radius: 8px 8px 0px 0px;
@@ -255,7 +255,7 @@
     -o-border-radius: 8px 8px 0px 0px;
   }
   
-  .owl-carousel .ad-item--cover .item-img {
+  #slide-in-carousel .owl-carousel .ad-item--cover .item-img {
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -263,7 +263,7 @@
     -o-border-radius: 10px;
   }
   
-  .owl-carousel .ad-item .item-info {
+  #slide-in-carousel .owl-carousel .ad-item .item-info {
     padding: 8px;
     padding-top: 0px;
     display: -ms-flexbox;
@@ -274,7 +274,7 @@
     gap: 14px;
   }
   
-  .owl-carousel .ad-item .item-info .item-title {
+  #slide-in-carousel .owl-carousel .ad-item .item-info .item-title {
     color: var(--dark-gray, #333);
     font-family: "Noto Sans TC", "Figtree", sans-serif;
     font-size: 12px;
@@ -291,7 +291,7 @@
     height: 2.4em;
   }
   
-  .owl-carousel .ad-item .item-info .item-price--original {
+  #slide-in-carousel .owl-carousel .ad-item .item-info .item-price--original {
     color: #3B3B32;
     font-family: "Figtree", sans-serif;
     font-size: 12px;
@@ -300,7 +300,7 @@
     line-height: normal;
   }
   
-  .owl-carousel .ad-item .item-info .discount-content {
+  #slide-in-carousel .owl-carousel .ad-item .item-info .discount-content {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: baseline;
@@ -309,7 +309,7 @@
         justify-content: space-between;
   }
   
-  .owl-carousel .ad-item .item-info .discount-content > .item-price {
+  #slide-in-carousel .owl-carousel .ad-item .item-info .discount-content > .item-price {
     color: #eb7454;
     font-family: "Figtree", sans-serif;
     font-size: 12px;
@@ -318,7 +318,7 @@
     line-height: normal;
   }
   
-  .owl-carousel .ad-item .item-info .discount-content > .item-price--original {
+  #slide-in-carousel .owl-carousel .ad-item .item-info .discount-content > .item-price--original {
     color: #3b3b32;
     font-family: "Figtree", sans-serif;
     font-size: 8px;
@@ -329,18 +329,18 @@
     opacity: 0.3;
   }
   
-  .owl-carousel .item {
+  #slide-in-carousel .owl-carousel .item {
     position: relative;
   }
   
-  .owl-carousel .item:hover .ad-item {
+  #slide-in-carousel .owl-carousel .item:hover .ad-item {
     opacity: 1;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     border: 1px solid var(--dark-yellow-14, rgba(59, 59, 50, 0.14));
     background: rgba(255, 255, 255, 0.7);
   }
   
-  .owl-carousel .item:hover .item-img {
+  #slide-in-carousel .owl-carousel .item:hover .item-img {
     background: rgba(255, 255, 255, 0.7);
   }
   
@@ -389,14 +389,14 @@
       -o-border-radius: 12px;
     }
   }
-  .owl-carousel .ad-item img {
+  #slide-in-carousel .owl-carousel .ad-item img {
     box-sizing: border-box;
     padding: 8px;
     border-radius: 12px;
   }
   
   @media screen and (min-width: 992px) {
-    .owl-carousel .ad-item img {
+    #slide-in-carousel .owl-carousel .ad-item img {
       box-sizing: border-box;
       padding: 0 0 8px 0;
       border-radius: 0;
@@ -414,23 +414,23 @@
       -webkit-backdrop-filter: blur(0) !important;
       background-color: transparent !important;
     }
-    .owl-carousel .ad-item img {
+    #slide-in-carousel .owl-carousel .ad-item img {
       box-sizing: border-box;
       padding-bottom: 0 0 8px 0;
       border-radius: 0;
     }
-    .owl-carousel .ad-item:hover img {
+    #slide-in-carousel .owl-carousel .ad-item:hover img {
       animation: scaleDown 500ms ease-out both;
       -webkit-animation-delay: 100ms;
               animation-delay: 100ms;
       -webkit-animation: scaleDown 500ms ease-out both;
     }
-    #slide-in-ad-container .owl-carousel .ad-item {
+    #slide-in-ad-container #slide-in-carousel .owl-carousel .ad-item {
       opacity: 0;
       position: absolute;
       z-index: -1;
     }
-    .owl-carousel .ad-item--cover {
+    #slide-in-carousel .owl-carousel .ad-item--cover {
       opacity: 1;
       position: relative;
       z-index: 1;
@@ -466,14 +466,14 @@
       -ms-transition: height 0.3s ease-out;
       -o-transition: height 0.3s ease-out;
     }
-    .owl-carousel .ad-item .item-info .item-title {
+    #slide-in-carousel .owl-carousel .ad-item .item-info .item-title {
       font-size: 14px;
       letter-spacing: 1.4px;
     }
-    .owl-carousel .ad-item .item-info .item-price {
+    #slide-in-carousel .owl-carousel .ad-item .item-info .item-price {
       font-size: 14px;
     }
-    .owl-carousel .ad-item .item-info .discount-content > .item-price {
+    #slide-in-carousel .owl-carousel .ad-item .item-info .discount-content > .item-price {
       color: #eb7454;
       font-family: "Figtree", sans-serif;
       font-size: 14px;
@@ -481,7 +481,7 @@
       font-weight: 500;
       line-height: normal;
     }
-    .owl-carousel .ad-item .item-info .discount-content > .item-price--original {
+    #slide-in-carousel .owl-carousel .ad-item .item-info .discount-content > .item-price--original {
       color: #3b3b32;
       font-family: "Figtree", sans-serif;
       font-size: 10px;
@@ -491,7 +491,7 @@
       /* 130% */
       opacity: 0.3;
     }
-    .owl-carousel .ad-item .item-info .item-price--original {
+    #slide-in-carousel .owl-carousel .ad-item .item-info .item-price--original {
       color: #3B3B32;
       font-family: "Figtree", sans-serif;
       font-size: 14px;
@@ -517,7 +517,7 @@
       padding: 10px 15px;
       font-size: 14px;
     }
-    .owl-carousel .item img {
+    #slide-in-carousel .owl-carousel .item img {
       max-height: 194px;
     }
   }
@@ -553,7 +553,7 @@
       },
     ],
   };
-  var owl;
+  var slideInOwl;
 
   // 定義每個標籤對應的圖片
   var tagImages = {
@@ -636,7 +636,7 @@
     document.body.insertAdjacentHTML("beforeend", slideInTemplate);
 
     // 初始化 Owl Carousel
-    owl = $("#slide-in-carousel").owlCarousel({
+    slideInOwl = $("#slide-in-carousel").owlCarousel({
       items: 1,
       slideBy: "page",
       loop: true,
@@ -715,132 +715,19 @@
         adContainer.setAttribute("data-bs-backdrop", "true");
       }
     }
-
-    // if (window.innerWidth >= breakpoint) {
-    //   console.log("Desktop version");
-    //   var isAnimationRunning = false;
-    //   var isMouseoverAnimationRunning = false;
-    //   adContainer.addEventListener("mouseover", function (event) {
-    //     // if (!isAnimationRunning && !isMouseoverAnimationRunning) {
-    //       // isMouseoverAnimationRunning = true;
-    //       // 停止當前動畫，並執行展開動畫
-    //       // $("#slide-in-ad-container.offcanvas.offcanvas-bottom").css(
-    //       //   { height: "430px" }
-    //       // );
-    //       // $(".ad-item").fadeIn(400)
-    //       // $(".ad-item--cover").fadeOut(400);
-    //       // 動畫完成後處理
-    //       // isAnimationRunning = false;
-    //       // isMouseoverAnimationRunning = false;
-    //       // $("#slide-in-ad-container.offcanvas.offcanvas-bottom")
-    //       //   .stop(false, false)
-    //       //   .animate(
-    //       //     {
-    //       //       height: "430px",
-    //       //     },
-    //       //     1000,
-    //       //     "swing",
-    //       //     function () {
-    //       //       // 動畫完成後處理
-    //       //       isAnimationRunning = false;
-    //       //       isMouseoverAnimationRunning = false;
-    //       //     }
-    //       //   );
-    //     // }
-    //   });
-    //   adContainer.addEventListener("mouseleave", function (event) {
-    //     // if (!isAnimationRunning) {
-    //       // 檢查滑鼠移到的目標是否不在 adContainer 內
-    //       if (!adContainer.contains(event.relatedTarget)) {
-    //         console.log("滑鼠已經移出 adContainer 整體範圍");
-
-    //         // 停止當前動畫並執行關閉动画
-    //         // isAnimationRunning = true;
-    //         // $("#slide-in-ad-container.offcanvas.offcanvas-bottom")
-    //         //   .stop(true, true)
-    //         //   .animate(
-    //         //     {
-    //         //       height: "280px",
-    //         //     },
-    //         //     500,
-    //         //     "swing",
-    //         //     function () {
-    //         //       // 關閉動畫完成後，切換顯示狀態
-    //         //       $(".ad-item").hide();
-    //         //       $(".ad-item--cover").show();
-    //         //       console.log("animated");
-    //         //       isAnimationRunning = false;
-    //         //     }
-    //         //   );
-    //       // }
-    //     }
-    //   });
-    // } else {
-    //   console.log("Mobile version");
-    //   // 使用 CSS 轉換替代 jQuery 動畫
-    //   setTimeout(function () {
-    //     $("#slide-in-ad-container.offcanvas.offcanvas-bottom").css({
-    //       transition: "height 0.35s ease",
-    //       height: "380px",
-    //     });
-    //     $("#slide-in-ad-container.offcanvas.offcanvas-bottom").on(
-    //       "transitionend",
-    //       function () {
-    //         console.log("CSS 動畫完成");
-    //         setTimeout(function () {
-    //           $(".ad-item--cover").hide(10, function () {
-    //             // 添加回調函數
-    //             $(".ad-item").addClass("animate__fadeIn").show();
-    //           });
-    //         }, 50);
-    //       }
-    //     );
-    //   }, 300);
-
-    //   // $(".ad-item--cover").fadeOut(300)
-    //   // 動畫完成後處理
-    //   // setTimeout(function () {
-    //   //   $(".ad-item--cover").hide(10, function() { // 添加回調函數
-    //   //     $(".ad-item").addClass("animate__fadeIn").show();
-    //   //   });
-    //   // }, 350); // 等待動畫時間
-    // }
-
-    // mousewheel
-    // owl.on("mousewheel", ".owl-stage", function (e) {
-    //   if (e.deltaY > 0) {
-    //     owl.trigger("next.owl");
-    //   } else {
-    //     owl.trigger("prev.owl");
-    //   }
-    //   e.preventDefault();
-    // });
-
     // 監聽 radio 按鈕變化
-    $(".pill-button").on("change", function () {
-      //   var containerHeight = "";
-      //   if (window.innerWidth >= breakpoint) {
-      //     containerHeight = "430px";
-      //   } else {
-      //     containerHeight = "380px";
-      //   }
-      selectedTag = $(this).next("label").attr("data-tag"); // 使用自定義屬性 data-tag 獲取當前選擇的標籤
-      updateCarousel(tagImages[selectedTag]);
-      //   $(".ad-item--cover").fadeIn(400);
-      //   $(".ad-item").fadeOut(400);
-      //   $("#slide-in-ad-container.offcanvas.offcanvas-bottom")
-      //     .stop(true, true)
-      //     .animate(
-      //       {
-      //         height: containerHeight,
-      //       },
-      //       1500,
-      //       "swing",
-      //       function () {
-      //         // 動畫完成後處理
-      //       }
-      //     );
-    });
+    if ("ontouchstart" in window) {
+      $(".pill-button").on("change", function () {
+        selectedTag = $(this).next("label").attr("data-tag"); // 使用自定義屬性 data-tag 獲取當前選擇的標籤
+        updateCarousel(tagImages[selectedTag]);
+      });
+    } else {
+      $(".pill-button").on("change", function () {
+        selectedTag = $(this).next("label").attr("data-tag"); // 使用自定義屬性 data-tag 獲取當前選擇的標籤
+        updateCarousel(tagImages[selectedTag]);
+      });
+    }
+
     getSlideInAd();
   });
 
@@ -894,8 +781,10 @@
     // Ensure 'images' is an array and not empty
     if (!Array.isArray(images) || images.length === 0) {
       console.warn("No images to display");
-      if (typeof owl !== "undefined") {
-        owl.trigger("replace.owl.carousel", []).trigger("refresh.owl.carousel");
+      if (typeof slideInOwl !== "undefined") {
+        slideInOwl
+          .trigger("replace.owl.carousel", [])
+          .trigger("refresh.owl.carousel");
       } else {
         console.error("Owl Carousel instance not found.");
       }
@@ -976,12 +865,12 @@
       .join("");
 
     // Ensure 'owl' instance exists before triggering
-    if (typeof owl !== "undefined") {
-      owl
+    if (typeof slideInOwl !== "undefined") {
+      slideInOwl
         .trigger("replace.owl.carousel", items)
         .trigger("refresh.owl.carousel");
     } else {
-      console.error("Owl Carousel instance not found.");
+      console.error("slideInOwl Carousel instance not found.");
     }
   }
 })(jQuery);
