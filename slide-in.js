@@ -561,6 +561,28 @@
   };
   $(function () {
     console.log("DOM is ready");
+        // Fetch the Bootstrap CSS from CDN
+        fetch(
+          "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        )
+          .then((response) => response.text())
+          .then((css) => {
+            // Scope the Bootstrap CSS to only work under .custom-scope class
+            const scopedCSS = css.replace(
+              /(^|\})\s*([^{]+)\s*\{/g,
+              function (match, p1, p2) {
+                // Ignore keyframes and other special rules
+                if (p2.startsWith("@") || p2.startsWith(":root")) {
+                  return match;
+                }
+                return p1 + " #slide-in-ad-container " + p2 + " {";
+              }
+            );
+    
+            // Inject the scoped CSS into the page
+            document.getElementById("slide-in-bootstrap-scoped").textContent =
+              scopedCSS;
+          });
     // 添加 html template
     var slideInTemplate = `<div style="position: relative;"><div
             class="offcanvas offcanvas-bottom"
@@ -667,29 +689,6 @@
         },
       },
     });
-
-    // Fetch the Bootstrap CSS from CDN
-    fetch(
-      "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    )
-      .then((response) => response.text())
-      .then((css) => {
-        // Scope the Bootstrap CSS to only work under .custom-scope class
-        const scopedCSS = css.replace(
-          /(^|\})\s*([^{]+)\s*\{/g,
-          function (match, p1, p2) {
-            // Ignore keyframes and other special rules
-            if (p2.startsWith("@") || p2.startsWith(":root")) {
-              return match;
-            }
-            return p1 + " #slide-in-ad-container " + p2 + " {";
-          }
-        );
-
-        // Inject the scoped CSS into the page
-        document.getElementById("slide-in-bootstrap-scoped").textContent =
-          scopedCSS;
-      });
 
     var selectedTag = "彈性"; // 這裏可以根據實際選擇動態設置
 
