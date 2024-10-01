@@ -223,6 +223,9 @@
     background-color: #fff;
     border: 1px solid var(--dark-yellow-14);
     cursor: pointer !important;
+    opacity: 1;
+    position: relative;
+    z-index : 1;
   }
   
   #slide-in-ad-container .owl-carousel .ad-item img {
@@ -344,14 +347,6 @@
     background: rgba(255, 255, 255, 0.7);
   }
   
-  .owl-item {
-    transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
-  }
-  
   /* 縮小動畫 */
   @-webkit-keyframes scaleDown {
     0% {
@@ -397,7 +392,7 @@
   
   @media screen and (min-width: 992px) {
       #slide-in-ad-container.offcanvas.offcanvas-bottom {
-        height: 280px
+        height: 280px;
     }
     #slide-in-ad-container .owl-carousel .ad-item img {
       box-sizing: border-box;
@@ -568,9 +563,9 @@
     console.log("DOM is ready");
     // 添加 html template
     var slideInTemplate = `<div
-            class="offcanvas offcanvas-bottom show"
-            data-bs-scroll="true"
-            data-bs-backdrop="false"
+            class="offcanvas offcanvas-bottom"
+            data-bs-scroll="false"
+            data-bs-backdrop="true"
             tabindex="-1"
             id="slide-in-ad-container"
             aria-labelledby="offcanvasBottomLabel"
@@ -875,5 +870,10 @@
     } else {
       console.error("slideInOwl Carousel instance not found.");
     }
+    var mySlideInOffcanvas = document.getElementById("slide-in-ad-container");
+    var bsSlideInOffcanvas = new bootstrap.Offcanvas(mySlideInOffcanvas);
+    setTimeout(function () {
+      bsSlideInOffcanvas.show();
+    }, 500);
   }
 })(jQuery);
