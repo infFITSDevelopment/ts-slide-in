@@ -72,7 +72,7 @@
     width: 97%;
     margin: 0 auto;
     z-index: 99999;
-    height: 280px;
+    height: 325px;
     transition: height 0.3s ease-out;
     -webkit-transition: height 0.3s ease-out;
     -moz-transition: height 0.3s ease-out;
@@ -396,6 +396,9 @@
   }
   
   @media screen and (min-width: 992px) {
+      #slide-in-ad-container.offcanvas.offcanvas-bottom {
+        height: 280px
+    }
     #slide-in-carousel .owl-carousel .ad-item img {
       box-sizing: border-box;
       padding: 0 0 8px 0;
