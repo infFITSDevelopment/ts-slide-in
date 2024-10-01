@@ -562,7 +562,7 @@
   $(function () {
     console.log("DOM is ready");
     // 添加 html template
-    var slideInTemplate = `<div
+    var slideInTemplate = `<div style="position: relative;"><div
             class="offcanvas offcanvas-bottom"
             data-bs-scroll="false"
             data-bs-backdrop="true"
@@ -630,6 +630,7 @@
               </div>
             </div>
           </div>
+        </div>
     `;
     document.body.insertAdjacentHTML("beforeend", slideInTemplate);
 
@@ -874,6 +875,6 @@
     var bsSlideInOffcanvas = new bootstrap.Offcanvas(mySlideInOffcanvas);
     setTimeout(function () {
       bsSlideInOffcanvas.show();
-    }, 500);
+    }, 800);
   }
 })(jQuery);
