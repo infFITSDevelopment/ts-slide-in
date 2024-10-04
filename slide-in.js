@@ -53,6 +53,7 @@
     -webkit-backdrop-filter: blur(30px);
     background: rgba(255, 255, 255, 0.6);
     border: none;
+    opacity: 0;
   }
   
   #slide-in-ad-container h3,
@@ -73,7 +74,6 @@
     margin: 0 auto;
     z-index: 99999;
     height: 340px;
-    opacity: 0;
     animation: slideInFromBottom .8s ease-out;
     @keyframes slideInFromBottom {
       0% {
