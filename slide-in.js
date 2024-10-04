@@ -73,6 +73,7 @@
     margin: 0 auto;
     z-index: 99999;
     height: 340px;
+    opacity: 0;
     animation: slideInFromBottom .8s ease-out;
     @keyframes slideInFromBottom {
       0% {
@@ -90,19 +91,6 @@
     -ms-transition: all 0.3s ease-out;
     -o-transition: all 0.3s ease-out;
   }
-      #slide-in-ad-container.offcanvas.offcanvas-bottom:not(.show) {
-         animation: slideOutToBottom .8s ease-out;
-          @keyframes slideOutToBottom {
-            0% {
-              transform: translateY(0);
-              opacity: 1;
-            }
-            100% {
-              transform: translateY(100%);
-              opacity: 0;
-            }
-          }
-      }
 
   #slide-in-ad-container.offcanvas.offcanvas-bottom .ad-item:hover {
     opacity: 1 !important;
