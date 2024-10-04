@@ -73,13 +73,37 @@
     margin: 0 auto;
     z-index: 99999;
     height: 340px;
-    transition: height 0.3s ease-out;
-    -webkit-transition: height 0.3s ease-out;
-    -moz-transition: height 0.3s ease-out;
-    -ms-transition: height 0.3s ease-out;
-    -o-transition: height 0.3s ease-out;
+    animation: slideInFromBottom .8s ease-out;
+    @keyframes slideInFromBottom {
+      0% {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
   }
-  
+      #slide-in-ad-container.offcanvas.offcanvas-bottom:not(.show) {
+         animation: slideOutToBottom .8s ease-out;
+          @keyframes slideOutToBottom {
+            0% {
+              transform: translateY(0);
+              opacity: 1;
+            }
+            100% {
+              transform: translateY(100%);
+              opacity: 0;
+            }
+          }
+      }
+
   #slide-in-ad-container.offcanvas.offcanvas-bottom .ad-item:hover {
     opacity: 1 !important;
     transition: opacity 0.3s ease-out;
@@ -454,9 +478,6 @@
       -o-transition: opacity 0.5s ease-out;
     }
     #slide-in-ad-container.offcanvas.offcanvas-bottom:hover {
-      min-height: -webkit-fit-content;
-      min-height: -moz-fit-content;
-      min-height: fit-content;
       height: 420px;
       transition: height 0.3s ease-out;
       -webkit-transition: height 0.3s ease-out;
@@ -561,28 +582,28 @@
   };
   $(function () {
     console.log("DOM is ready");
-        // Fetch the Bootstrap CSS from CDN
-        fetch(
-          "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        )
-          .then((response) => response.text())
-          .then((css) => {
-            // Scope the Bootstrap CSS to only work under .custom-scope class
-            const scopedCSS = css.replace(
-              /(^|\})\s*([^{]+)\s*\{/g,
-              function (match, p1, p2) {
-                // Ignore keyframes and other special rules
-                if (p2.startsWith("@") || p2.startsWith(":root")) {
-                  return match;
-                }
-                return p1 + " #slide-in-ad-container " + p2 + " {";
-              }
-            );
-    
-            // Inject the scoped CSS into the page
-            document.getElementById("slide-in-bootstrap-scoped").textContent =
-              scopedCSS;
-          });
+    // Fetch the Bootstrap CSS from CDN
+    fetch(
+      "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    )
+      .then((response) => response.text())
+      .then((css) => {
+        // Scope the Bootstrap CSS to only work under .custom-scope class
+        const scopedCSS = css.replace(
+          /(^|\})\s*([^{]+)\s*\{/g,
+          function (match, p1, p2) {
+            // Ignore keyframes and other special rules
+            if (p2.startsWith("@") || p2.startsWith(":root")) {
+              return match;
+            }
+            return p1 + " #slide-in-ad-container " + p2 + " {";
+          }
+        );
+
+        // Inject the scoped CSS into the page
+        document.getElementById("slide-in-bootstrap-scoped").textContent =
+          scopedCSS;
+      });
     // 添加 html template
     var slideInTemplate = `<div style="position: relative;"><div
             class="offcanvas offcanvas-bottom"
@@ -875,5 +896,12 @@
     setTimeout(function () {
       bsSlideInOffcanvas.show();
     }, 800);
+    mySlideInOffcanvas.addEventListener("hide.bs.offcanvas", function () {
+    $('#slide-in-ad-container').hide()
+    })
+    mySlideInOffcanvas.addEventListener("hidden.bs.offcanvas", function () {
+      // do something...
+      $("#slide-in-carousel").hide();
+    });
   }
 })(jQuery);
