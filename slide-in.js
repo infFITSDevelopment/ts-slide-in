@@ -60,7 +60,8 @@
     padding: 0;
     margin: 0;
   }
-  #slide-in-ad-container:not(.show) {
+
+  .slide-main{
     opacity: 0;
   }
 
@@ -595,7 +596,7 @@
           scopedCSS;
       });
     // 添加 html template
-    var slideInTemplate = `<div style="position: relative;"><div
+    var slideInTemplate = `<div class="slide-main" style="position: relative;"><div
             class="offcanvas offcanvas-bottom"
             data-bs-scroll="false"
             data-bs-backdrop="true"
@@ -884,6 +885,7 @@
     var mySlideInOffcanvas = document.getElementById("slide-in-ad-container");
     var bsSlideInOffcanvas = new bootstrap.Offcanvas(mySlideInOffcanvas);
     setTimeout(function () {
+      $('.slide-main').css('opacity', '1')
       bsSlideInOffcanvas.show();
     }, 800);
     mySlideInOffcanvas.addEventListener("hide.bs.offcanvas", function () {
