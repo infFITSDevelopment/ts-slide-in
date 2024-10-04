@@ -62,10 +62,21 @@
   }
   #slide-in-ad-container:not(.show) {
     opacity: 0;
-    transform: translateY(100%);
   }
-  #slide-in-ad-container.offcanvas.offcanvas-bottom.show {
-    animation: slideInFromBottom .8s ease-out;
+
+  #slide-in-ad-container.offcanvas.offcanvas-bottom {
+    min-height: -webkit-fit-content;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+    position: fixed;
+    bottom: 18px;
+    left: 1.5%;
+    right: 1.5%;
+    width: 97%;
+    margin: 0 auto;
+    z-index: 99999;
+    height: 340px;
+        animation: slideInFromBottom .8s ease-out;
     @keyframes slideInFromBottom {
       0% {
         transform: translateY(100%);
@@ -81,20 +92,6 @@
     -moz-transition: all 0.3s ease-out;
     -ms-transition: all 0.3s ease-out;
     -o-transition: all 0.3s ease-out;
-  }
-
-  #slide-in-ad-container.offcanvas.offcanvas-bottom {
-    min-height: -webkit-fit-content;
-    min-height: -moz-fit-content;
-    min-height: fit-content;
-    position: fixed;
-    bottom: 18px;
-    left: 1.5%;
-    right: 1.5%;
-    width: 97%;
-    margin: 0 auto;
-    z-index: 99999;
-    height: 340px;
   }
 
   #slide-in-ad-container.offcanvas.offcanvas-bottom .ad-item:hover {
