@@ -60,7 +60,7 @@
     padding: 0;
     margin: 0;
   }
-  #slide-in-ad-container.offcanvas.offcanvas-bottom:not(.show) {
+  #slide-in-ad-container:not(.show) {
     opacity: 0;
     transform: translateY(100%);
   }
