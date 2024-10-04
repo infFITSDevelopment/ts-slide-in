@@ -53,7 +53,6 @@
     -webkit-backdrop-filter: blur(30px);
     background: rgba(255, 255, 255, 0.6);
     border: none;
-    opacity: 0;
   }
   
   #slide-in-ad-container h3,
@@ -61,7 +60,10 @@
     padding: 0;
     margin: 0;
   }
-  
+  #slide-in-ad-container.offcanvas.offcanvas-bottom:not(.show) {
+    opacity: 0;
+  }
+
   #slide-in-ad-container.offcanvas.offcanvas-bottom {
     min-height: -webkit-fit-content;
     min-height: -moz-fit-content;
