@@ -54,7 +54,9 @@
     background: rgba(255, 255, 255, 0.6);
     border: none;
   }
-  
+  #slide-in-ad-container label{
+   margin: 0;
+  }
   #slide-in-ad-container h3,
   #slide-in-ad-container p {
     padding: 0;
@@ -127,13 +129,12 @@
     right: 16px;
     top: 12px;
     padding: 10px;
-    font-size: 16px;
+    font-size: 12px;
     background-color: transparent;
     border: none;
     cursor: pointer;
-    display: none;
   }
-  
+
   /* pill button  */
   #slide-in-ad-container .ad-container__header {
     max-width: 100%;
@@ -147,6 +148,7 @@
     -ms-border-radius: 50px;
     -o-border-radius: 50px;
     overflow-x: auto;
+    margin-top: 16px;
   }
   
   #slide-in-ad-container .ad-container__header > .pill-container {
@@ -419,7 +421,7 @@
       -o-border-radius: 0;
     }
     #slide-in-ad-container #ad-icon--close {
-      display: block;
+      font-size: 16px;
     }
     .offcanvas-backdrop.show {
       opacity: 0.5 !important;
@@ -595,10 +597,36 @@
         document.getElementById("slide-in-bootstrap-scoped").textContent =
           scopedCSS;
       });
+      $(document).on("click", ".ad-item", function () {
+        console.log("ad-item clicked");
+        console.log($(this));
+        const title = $(this).data("title"); // 取得 data-title 屬性
+        const link = $(this).data("link"); // 取得 data-link 屬性
+  
+        // 觸發 Google Analytics 的事件追蹤
+        gtag("event", "click_slideIn_item", {
+          send_to: "G-PQQRC09ZPS",
+          event_category: "slideIn",
+          event_label: title,
+          event_value: link,
+        });
+      });
+      $(document).on("click", ".pill-label", function () {
+        console.log("ad-item category clicked");
+        console.log($(this));
+        const tag = $(this).data("tag"); // 取得 data-tag 屬性
+  
+        // 觸發 Google Analytics 的事件追蹤
+        gtag("event", "click_slideIn_item", {
+          send_to: "G-PQQRC09ZPS",
+          event_category: "slideIn_category",
+          event_label: tag,
+        });
+      });
     // 添加 html template
     var slideInTemplate = `<div class="slide-main" style="position: relative;"><div
             class="offcanvas offcanvas-bottom"
-            data-bs-scroll="false"
+            data-bs-scroll="true"
             data-bs-backdrop="true"
             tabindex="-1"
             id="slide-in-ad-container"
@@ -718,11 +746,9 @@
 
       // 當視窗寬度大於等於 992px (桌面版)
       if (windowWidth >= breakpoint) {
-        adContainer.setAttribute("data-bs-scroll", "true");
         adContainer.setAttribute("data-bs-backdrop", "false");
       } else {
-        adContainer.setAttribute("data-bs-scroll", "false");
-        adContainer.setAttribute("data-bs-backdrop", "true");
+        adContainer.setAttribute("data-bs-backdrop", "static");
       }
     }
     // 監聽 radio 按鈕變化
@@ -849,7 +875,7 @@
         }" alt="${img.alt || "Image"}" />
                 </div>
             </div>
-            <div class="ad-item" onclick="window.open('${img.link}')">
+            <div class="ad-item" onclick="window.open('${img.link}')" data-title="${img.alt}" data-link="${img.link}">
                 <div class="item-img">
                     <img class="image-responsive" src="${img.src}" data-src="${
           img.src
