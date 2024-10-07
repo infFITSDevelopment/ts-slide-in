@@ -159,8 +159,6 @@
     -o-border-radius: 50px;
     overflow-x: auto;
     margin-top: 16px;
-    margin-left: 1px;
-    margin-right: 1px;
   }
   
   #slide-in-ad-container .ad-container__header > .pill-container {
@@ -611,8 +609,6 @@
           scopedCSS;
       });
     $(document).on("click", ".ad-item", function () {
-      console.log("ad-item clicked");
-      console.log($(this));
       const title = $(this).data("title"); // 取得 data-title 屬性
       const link = $(this).data("link"); // 取得 data-link 屬性
 
@@ -624,9 +620,15 @@
         event_value: link,
       });
     });
+    $(document).on("click", "#ad-icon--close", function () {
+      // 觸發 Google Analytics 的事件追蹤
+      gtag("event", "click_slideIn_item", {
+        send_to: "G-PQQRC09ZPS",
+        event_category: "slideIn_close",
+        event_label: 'close',
+      });
+    });
     $(document).on("click", ".pill-label", function () {
-      console.log("ad-item category clicked");
-      console.log($(this));
       const tag = $(this).data("tag"); // 取得 data-tag 屬性
 
       // 觸發 Google Analytics 的事件追蹤
