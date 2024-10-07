@@ -127,13 +127,23 @@
   #slide-in-ad-container #ad-icon--close {
     position: absolute;
     right: 16px;
-    top: 12px;
+    top: 10px;
     padding: 10px;
-    font-size: 12px;
+    font-size: 10px;
     background-color: transparent;
     border: none;
     cursor: pointer;
   }
+.custom-slideIn-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.3);
+}
 
   /* pill button  */
   #slide-in-ad-container .ad-container__header {
@@ -149,6 +159,8 @@
     -o-border-radius: 50px;
     overflow-x: auto;
     margin-top: 16px;
+    margin-left: 1px;
+    margin-right: 1px;
   }
   
   #slide-in-ad-container .ad-container__header > .pill-container {
@@ -422,6 +434,7 @@
     }
     #slide-in-ad-container #ad-icon--close {
       font-size: 16px;
+      top: 12px;
     }
     .offcanvas-backdrop.show {
       opacity: 0.5 !important;
@@ -597,37 +610,37 @@
         document.getElementById("slide-in-bootstrap-scoped").textContent =
           scopedCSS;
       });
-      $(document).on("click", ".ad-item", function () {
-        console.log("ad-item clicked");
-        console.log($(this));
-        const title = $(this).data("title"); // 取得 data-title 屬性
-        const link = $(this).data("link"); // 取得 data-link 屬性
-  
-        // 觸發 Google Analytics 的事件追蹤
-        gtag("event", "click_slideIn_item", {
-          send_to: "G-PQQRC09ZPS",
-          event_category: "slideIn",
-          event_label: title,
-          event_value: link,
-        });
+    $(document).on("click", ".ad-item", function () {
+      console.log("ad-item clicked");
+      console.log($(this));
+      const title = $(this).data("title"); // 取得 data-title 屬性
+      const link = $(this).data("link"); // 取得 data-link 屬性
+
+      // 觸發 Google Analytics 的事件追蹤
+      gtag("event", "click_slideIn_item", {
+        send_to: "G-PQQRC09ZPS",
+        event_category: "slideIn",
+        event_label: title,
+        event_value: link,
       });
-      $(document).on("click", ".pill-label", function () {
-        console.log("ad-item category clicked");
-        console.log($(this));
-        const tag = $(this).data("tag"); // 取得 data-tag 屬性
-  
-        // 觸發 Google Analytics 的事件追蹤
-        gtag("event", "click_slideIn_item", {
-          send_to: "G-PQQRC09ZPS",
-          event_category: "slideIn_category",
-          event_label: tag,
-        });
+    });
+    $(document).on("click", ".pill-label", function () {
+      console.log("ad-item category clicked");
+      console.log($(this));
+      const tag = $(this).data("tag"); // 取得 data-tag 屬性
+
+      // 觸發 Google Analytics 的事件追蹤
+      gtag("event", "click_slideIn_item", {
+        send_to: "G-PQQRC09ZPS",
+        event_category: "slideIn_category",
+        event_label: tag,
       });
+    });
     // 添加 html template
     var slideInTemplate = `<div class="slide-main" style="position: relative;"><div
             class="offcanvas offcanvas-bottom"
             data-bs-scroll="true"
-            data-bs-backdrop="true"
+            data-bs-backdrop="false"
             tabindex="-1"
             id="slide-in-ad-container"
             aria-labelledby="offcanvasBottomLabel"
@@ -693,6 +706,7 @@
             </div>
           </div>
         </div>
+         <div class="custom-slideIn-backdrop"></div>
     `;
     document.body.insertAdjacentHTML("beforeend", slideInTemplate);
 
@@ -746,9 +760,9 @@
 
       // 當視窗寬度大於等於 992px (桌面版)
       if (windowWidth >= breakpoint) {
-        adContainer.setAttribute("data-bs-backdrop", "false");
+        // adContainer.setAttribute("data-bs-backdrop", "false");
       } else {
-        adContainer.setAttribute("data-bs-backdrop", "static");
+        // adContainer.setAttribute("data-bs-backdrop", "static");
       }
     }
     // 監聽 radio 按鈕變化
@@ -875,7 +889,9 @@
         }" alt="${img.alt || "Image"}" />
                 </div>
             </div>
-            <div class="ad-item" onclick="window.open('${img.link}')" data-title="${img.alt}" data-link="${img.link}">
+            <div class="ad-item" onclick="window.open('${
+              img.link
+            }')" data-title="${img.alt}" data-link="${img.link}">
                 <div class="item-img">
                     <img class="image-responsive" src="${img.src}" data-src="${
           img.src
@@ -911,12 +927,21 @@
     var mySlideInOffcanvas = document.getElementById("slide-in-ad-container");
     var bsSlideInOffcanvas = new bootstrap.Offcanvas(mySlideInOffcanvas);
     setTimeout(function () {
-      $('.slide-main').css('opacity', '1')
+      // 取得當前視窗寬度
+      var windowWidth = window.innerWidth;
+      if (windowWidth < 992) {
+        $(".custom-slideIn-backdrop").fadeIn(300);
+      }
+      $(".slide-main").css("opacity", "1");
       bsSlideInOffcanvas.show();
     }, 800);
     mySlideInOffcanvas.addEventListener("hide.bs.offcanvas", function () {
-    $('#slide-in-ad-container').hide()
-    })
+      $("#slide-in-ad-container").hide();
+      var windowWidth = window.innerWidth;
+      if (windowWidth < 992) {
+        $(".custom-slideIn-backdrop").hide();
+      }
+    });
     mySlideInOffcanvas.addEventListener("hidden.bs.offcanvas", function () {
       // do something...
       $("#slide-in-carousel").hide();
