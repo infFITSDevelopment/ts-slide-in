@@ -657,7 +657,7 @@
               ></button>
             </div>
             <div class="offcanvas-body small">
-              <div style="ad-container-hd">
+              <div style="max-width:99%">
                 <div class="ad-container__header">
                   <div class="pill-container">
                     <div>
